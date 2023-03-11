@@ -1,0 +1,117 @@
+---
+title: "Tarea 2 - Homework"
+output: html_notebook
+---
+Funciones en R
+
+*Estructura de una función
+
+Que es una función:
+
+Una funcion en R, se puede definir como una colección o trozo de instrucciones, que pueden recibir un conjunto de valores de entrada, (inputs), transformarlas en las instrucciones deseadas, y generar un respuesta de salida, llamados (outputs).
+
+Ademas una función empaqueta y aisla cierta parte de codigo, del restro de un programa, generalmente se utilizan para diferencias y separar las rutinas repetivas, a esto tambien se le llama reutilización de codigo y modularización, con esto tambien se logra una mejor eficiencia en la ejecución de las instrucicones, como en el mejor manejo del codigo.
+
+Estuctura de una función:
+
+
+
+Las partes de una función son:
+
+Entradas - Inputs - argumentos - parametros:
+
+Estos brindad información que sera procesada durante la ejecución de la función.
+
+Cuerpo: Este esta formado por el conjunto de instrucciones que transforman las entradas y pasan por una  el flujo establecido, para usar estos valores y transformarlos. 
+
+Salidas: 
+Estos son los resultados que las instruciones efectuan sobre los argumentos.
+
+Partes de una función:
+
+nombre_de_funcion <- function(par1, par2, ...) {
+  cuerpo
+  cuerpo
+  cuerpo
+  cuerpo
+  return(resultado)
+}
+
+Ejemplo: Función que calcula el punto medio de los numeros ingresados.
+
+
+medio <- function(a, b) {
+  medio <- (a + b) / 2
+  cat("El punto medio de los valores", a, "y", b,
+      "ingresados es", medio)
+}
+
+medio(a=-3, b=-1)  # Probando la función
+
+
+
+
+*Argumentos de una función
+
+Tomando el ejemplo mostrado en partes de un función:los argumentos son los valores que se establecen o se definen entre los parentesis - function(par1, par2, ...)
+Estos valores pueden ser de los tipos soportados por el lenguaje, y pueden ser 0 o muchos valores, dependiendo del uso que se le dara dentro del cuerpo.
+
+*Argumentos por valor de una funcion
+
+
+Por valor significa que la función (o subrutina) recibe sólo una copia del valor que tiene la variable, o sea que no la puede modificar.
+
+Que es LAPPLY
+
+lapply() es un caso especial de apply(), diseñado para aplicar funciones a todos los elementos de una lista. La l de su nombre se refiere, precisamente, a lista.
+
+lapply() intentará coercionar a una lista el objeto que demos como argumento y después aplicará una función a todos sus elementos.
+
+lapply siempre nos devolverá una lista como resultado. A diferencia de apply, sabemos que siempre obtendremos ub objeto de tipo lista después de aplicar una función, sin importar cuál función sea.
+
+Dado que en R todas las estructuras de datos pueden coercionarse a una lista, lapply() puede usarse en un número más amplio de casos que apply(), además de que esto nos permite utilizar funciones que aceptan argumentos distintos a vectores.
+
+
+
+Ejemplo de lapply
+lapply(X = trees, FUN = mean)
+## $Girth
+## [1] 13.24839
+## 
+## $Height
+## [1] 76
+## 
+## $Volume
+## [1] 30.17097
+
+
+
+
+QUE ES SAPPLY
+función sapply()
+La función sapply() toma la lista, el vector o el marco de datos como entrada y da salida en vector o matriz. Es útil para operaciones en objetos de lista y devuelve un objeto de lista de la misma longitud que el conjunto original. La función Sapply en R hace el mismo trabajo que la función lapply() pero devuelve un vector.
+
+savia (X, DIVERSIÓN)
+Argumentos:
+-X: Un vector o un objeto
+-FUN: Función aplicada a cada elemento de x
+
+
+
+QUE ES VAPPLY
+
+Vapply
+Devuelve un vector con la longitud que tiene cada una de las listas introducidas como parámetro.
+
+x <- list(A = 1, B = 1:3, C = 1:7)
+x
+$a
+[1] 1
+$b
+[1] 1 2 3
+$c
+[1] 1 2 3 4 5 6 7
+
+vapply(x, FUN = length, FUN.VALUE = 0L)
+a b c 
+1 3 7

@@ -1,0 +1,73 @@
+HomeWork
+1. Filtrar todos los votos del estado de Florida
+
+```{r}
+library(ggplot2)
+library(gapminder)
+library(dplyr)
+
+dataset_results <- read.csv(file = "C:\\Users\\Leo\\Documents\\Maestria 2023\\Scripting\\primary_results.csv")
+data_Florida <- dataset_results %>%
+filter(state=='Florida', votes >=0)
+
+
+
+```
+
+2.1  Filtrar votos para los candidatos Hillary Clinton o Donald Trump
+```{r}
+
+dataset_results <- read.csv(file = "C:\\Users\\Leo\\Documents\\Maestria 2023\\Scripting\\primary_results.csv")
+data_Florida <- dataset_results %>%
+filter(candidate=='Hillary Clinton' | candidate == 'Donald Trump')
+
+```
+
+
+2.2  Filtrar votos para el partido Demócrata y el condadoShelby 
+```{r}
+dataset_results <- read.csv(file = "C:\\Users\\Leo\\Documents\\Maestria 2023\\Scripting\\primary_results.csv")
+data_Florida <- dataset_results %>%
+filter(party=='Democrat' & county == 'Shelby')
+```
+2.3 Filtrar votos para el estado de Alabama y que la cantidad de votos sea mayor a 15000
+
+```{r}
+dataset_results <- read.csv(file = "C:\\Users\\Leo\\Documents\\Maestria 2023\\Scripting\\primary_results.csv")
+data_Florida <- dataset_results %>%
+filter(state=='Alabama' & votes > 15000)
+```
+
+3. Utilice la función select y arrange para el siguiente filtrado:
+
+3.1. Filtrar votos para el estado de Texas y el condado Denton, seleccionando únicamente las columnas party, candidate, votes, luego ordene de forma descendente por lacolumnavotes
+
+```{r}
+library(ggplot2)
+library(gapminder)
+library(dplyr)
+dataset_results <- read.csv(file = "C:\\Users\\Leo\\Documents\\Maestria 2023\\Scripting\\primary_results.csv")
+date_select <- dataset_results %>%
+filter (state=='Texas' & county=='Denton')
+select(date_select,state,candidate,votes)
+
+show(date_select)
+```
+
+```{r}
+library(ggplot2)
+library(gapminder)
+library(dplyr)
+
+dataset_results <- read.csv(file = "C:\\Users\\Leo\\Documents\\Maestria 2023\\Scripting\\primary_results.csv")
+date_select <- dataset_results %>%
+filter (party=='Republican' & candidate=='Ted Cruz' & state=='Alaska')
+date_select_new <- mutate(date_select, vote_count = votes / fraction_votes)
+print(date_select_new)
+
+
+```
+
+```{r}
+
+
